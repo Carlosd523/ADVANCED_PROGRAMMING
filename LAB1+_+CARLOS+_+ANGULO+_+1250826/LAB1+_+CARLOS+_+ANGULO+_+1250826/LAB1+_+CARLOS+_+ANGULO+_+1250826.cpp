@@ -2,6 +2,8 @@
 #include <limits>
 #include <cstdlib>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -60,13 +62,17 @@ void ValidacionDecimal(double& numero, double min, double max) {
 
 // Función 04 - Consultar saldo
 void ConsultarSaldo(double saldo) {
+    cout << fixed << setprecision(2);
     cout << "Su saldo actual es: " << saldo << endl;
 }
 
 // Función 05 - Aumentar historial de operaciones
 void AumentarHistorial(string historialOperaciones[], string operacion, int& contador, double cantidad) {
     if (contador < 20) {
-        historialOperaciones[contador] = operacion + ":" + to_string(cantidad);
+        stringstream texto;
+        texto << fixed << setprecision(2) << cantidad;
+
+        historialOperaciones[contador] = operacion + ": Q" + texto.str();
         contador++;
     }
 }
@@ -84,30 +90,45 @@ void RealizarDeposito(double& saldo, int& totalDepositos, string historialOperac
 
 // Función 07 - Realizar retiro
 void RealizarRetiro(double& saldo, int& totalRetiros, string historialOperaciones[], int& contador) {
-    double retiro = 0;
-    cout << "El monto mínimo para retirar es de Q1.00" << endl;
-    cout << "Ingrese el monto a retirar: ";
-    ValidacionDecimal(retiro, 1, saldo);
-    saldo -= retiro;
-    totalRetiros++;
-    AumentarHistorial(historialOperaciones, "Retiro", contador, retiro);
+    if (saldo < 1) {
+        cout << "No posee saldo suficiente para realizar un retiro" << endl;
+    }
+    else {
+        double retiro = 0;
+        cout << "El monto mínimo para retirar es de Q1.00" << endl;
+        cout << "Ingrese el monto a retirar: ";
+        ValidacionDecimal(retiro, 1, saldo);
+        saldo -= retiro;
+        totalRetiros++;
+        AumentarHistorial(historialOperaciones, "Retiro", contador, retiro);
+    }
 }
 
 // Función 08 - Realizar transferencia
 void RealizarTransferencia(double& saldo, int& totalTransferencias, string historialOperaciones[], int& contador) {
-    double transferencia = 0;
-    cout << "El monto mínimo para transferir es de Q1.00" << endl;
-    cout << "Ingrese el monto a transferir: ";
-    ValidacionDecimal(transferencia, 1, saldo);
-    saldo -= transferencia;
-    totalTransferencias++;
-    AumentarHistorial(historialOperaciones, "Transferencia", contador, transferencia);
+    if (saldo < 1) {
+        cout << "No tiene saldo suficiente para realizar un retiro" << endl;
+    }
+    else {
+        double transferencia = 0;
+        cout << "El monto mínimo para transferir es de Q1.00" << endl;
+        cout << "Ingrese el monto a transferir: ";
+        ValidacionDecimal(transferencia, 1, saldo);
+        saldo -= transferencia;
+        totalTransferencias++;
+        AumentarHistorial(historialOperaciones, "Transferencia", contador, transferencia);
+    }
 }
 
 // Función 09 - Mostrar historial de operaciones
 void MostrarHistorial(string historialOperaciones[], int contador) {
-    for (int i = 0; i < contador; i++) {
-        cout << historialOperaciones[i] << endl;
+    if (contador == 0) {
+        cout << "No se han hecho transacciones" << endl;
+    }
+    else {
+        for (int i = 0; i < contador; i++) {
+            cout << historialOperaciones[i] << endl;
+        }
     }
 }
 int main() {
@@ -116,12 +137,11 @@ int main() {
     string historialOperaciones[20];
     double saldo = 5000;
 
-    int kamehameha;
     do {
         //MENÚ
         cout << "======== BANCO URL ========" << endl;
         cout << "1. CONSULTAR SALDO" << endl;
-        cout << "2. REALIZAAR DEPOSITO" << endl;
+        cout << "2. REALIZAAR DÉPOSITO" << endl;
         cout << "3. REALIZAR RETIRO" << endl;
         cout << "4. REALIZAR TRANSFERENCIA" << endl;
         cout << "5. VER HISTORIAL DE OPERACIONES" << endl;
@@ -158,5 +178,11 @@ int main() {
             break;
         }
     } while (option != maxOpt);
+
+    cout << fixed << setprecision(2);
+    cout << "Saldo final: " << saldo << endl;
+    cout << "Número total de dépositos: " << totalDepositos << endl;
+    cout << "Número total de retiros: " << totalRetiros << endl;
+    cout << "Número total de transferencias: " << totalTransferencias << endl;
     return 0;
 }
