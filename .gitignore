@@ -1,0 +1,23 @@
+# Archivos y carpetas de Visual Studio
+.vs/
+*.user
+*.suo
+*.vsidx
+
+# Carpetas de compilación
+Debug/
+Release/
+x64/
+bin/
+obj/
+
+# Archivos compilados
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+
+# Archivos temporales
+*.log
+*.tmp
