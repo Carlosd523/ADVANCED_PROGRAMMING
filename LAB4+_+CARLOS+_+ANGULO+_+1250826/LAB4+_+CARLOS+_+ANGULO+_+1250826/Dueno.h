@@ -19,6 +19,7 @@ struct Dueno
 	void registrarDueno(string nombre, string ID);
 
 	string getNombre();
+	string getID();
 	int getContadorMascotas();	
 
 	~Dueno() {};

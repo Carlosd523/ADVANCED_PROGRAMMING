@@ -10,3 +10,4 @@ Dueno::Dueno() {}
 
 std::string Dueno::getNombre() { return nombre; }
 int Dueno::getContadorMascotas() { return contadorMascotas; }
+std::string Dueno::getID() { return ID; }

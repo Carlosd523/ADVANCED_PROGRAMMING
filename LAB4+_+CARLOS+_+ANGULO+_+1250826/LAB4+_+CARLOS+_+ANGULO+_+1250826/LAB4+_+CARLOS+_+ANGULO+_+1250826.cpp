@@ -247,7 +247,7 @@ int main()
 			cout << "Historial de gastos de: " << duenos[optDueno - 1].getNombre() << endl;
 			bool tieneGastos = false;
 			for (int i = 0; i < contGastos; i++) {
-				if (gastos[i].getDueno().getNombre() == duenos[optDueno - 1].getNombre()) {
+				if (gastos[i].getDueno().getID() == duenos[optDueno - 1].getID()) {
 					gastos[i].detallesGasto();
 					tieneGastos = true;
 				}
