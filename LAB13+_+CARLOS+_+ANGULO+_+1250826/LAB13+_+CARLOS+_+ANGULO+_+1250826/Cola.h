@@ -6,18 +6,21 @@
 class Cola
 {
 private:
-	Nodo<Cliente>* frente = nullptr;
-	Nodo<Cliente>* final = nullptr;
+	Nodo<Cliente*>* frente = nullptr;
+	Nodo<Cliente*>* final = nullptr;
 
 public:
 	// Agregar un cliente
-	void agregarCliente(Cliente cliente);
+	void agregarCliente(Cliente* cliente);
 
 	// Atender un cliente
-	void atenderCliente();
+	Cliente* atenderCliente();
 
 	// Mostrar cola
 	void mostrarCola();
+
+	// Get frente
+	Cliente* getFrente();
 
 	// Destructor
 	~Cola();

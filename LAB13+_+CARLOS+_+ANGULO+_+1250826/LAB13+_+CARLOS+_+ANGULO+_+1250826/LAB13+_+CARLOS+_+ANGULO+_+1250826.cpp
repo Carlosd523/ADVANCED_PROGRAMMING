@@ -1,6 +1,8 @@
 #include <iostream>
+#include "Tienda.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Tienda tienda = Tienda();
+    tienda.gestionarTienda();
 }

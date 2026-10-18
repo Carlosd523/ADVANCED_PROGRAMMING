@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -125,16 +125,25 @@
   <ItemGroup>
     <ClCompile Include="Alquiler.cpp" />
     <ClCompile Include="Cliente.cpp" />
+    <ClCompile Include="Cola.cpp" />
+    <ClCompile Include="Excepciones.cpp" />
+    <ClCompile Include="Funciones.cpp" />
     <ClCompile Include="LAB13+_+CARLOS+_+ANGULO+_+1250826.cpp" />
-    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Pelicula.cpp" />
+    <ClCompile Include="Pila.cpp" />
+    <ClCompile Include="Tienda.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alquiler.h" />
     <ClInclude Include="Cliente.h" />
+    <ClInclude Include="Cola.h" />
+    <ClInclude Include="Excepciones.h" />
+    <ClInclude Include="Funciones.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Pelicula.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="Pila.h" />
+    <ClInclude Include="Tienda.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

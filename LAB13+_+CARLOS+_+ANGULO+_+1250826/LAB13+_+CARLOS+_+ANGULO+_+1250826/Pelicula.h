@@ -8,6 +8,7 @@ using namespace std;
 class Pelicula
 {
 private:
+	// La clave para película es el título
 	string titulo = "";
 	string genero = "";
 	double precioAlquiler = 0;
@@ -20,7 +21,7 @@ public:
 	Pelicula();
 
 	// Métodos get
-	string getTitulo();
+	string getClave();
 	string getGenero();
 	double getPrecioAlquiler();
 	int getAnyoEstreno();
@@ -34,7 +35,7 @@ public:
 	void setCopiasDisponibles(int copiasDisponibles);
 
 	// Otros métodos
-	void mostrarPelicula();
+	void mostrarDetalles();
 };
 
 #endif

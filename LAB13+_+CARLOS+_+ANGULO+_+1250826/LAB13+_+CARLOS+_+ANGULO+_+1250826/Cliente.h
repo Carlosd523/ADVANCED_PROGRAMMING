@@ -8,18 +8,20 @@ using namespace std;
 class Cliente
 {
 private:
+	
 	string nombre = "";
-	int Id = 0;
+	// El ID es la clave de Cliente
+	string Id = "";
 	string correo = "";
 
 public:
 	// Constructores
-	Cliente(string nombre, int ID, string correo);
+	Cliente(string nombre, string ID, string correo);
 	Cliente();
 
 	// Métodos get
 	string getNombre();
-	int getId();
+	string getClave();
 	string getCorreo();
 
 	// Métodos set
@@ -28,7 +30,7 @@ public:
 	void setCorreo(string correo);
 
 	// Otros métodos
-	void mostrarCliente();
+	void mostrarDetalles();
 };
 
 #endif

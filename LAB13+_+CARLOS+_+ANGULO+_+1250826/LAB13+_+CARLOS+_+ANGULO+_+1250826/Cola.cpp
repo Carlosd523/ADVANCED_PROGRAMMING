@@ -2,9 +2,8 @@
 #include <iostream>
 
 // Agregar un cliente
-void Cola::agregarCliente(Cliente cliente) {
-	Nodo<Cliente>* nodoAgregar = new Nodo<Cliente>(cliente);
-	nodoAgregar->dato = cliente;
+void Cola::agregarCliente(Cliente* cliente) {
+	Nodo<Cliente*>* nodoAgregar = new Nodo<Cliente*>(cliente);
 
 	if (frente == nullptr) {
 		frente = nodoAgregar;
@@ -13,25 +12,29 @@ void Cola::agregarCliente(Cliente cliente) {
 	}
 
 	final->next = nodoAgregar;
-	nodoAgregar = final;
+	final = nodoAgregar;
 }
 
 // Atender un cliente
-void Cola::atenderCliente() {
+Cliente* Cola::atenderCliente() {
 	if (frente == nullptr) {
 		cout << "La cola está vacía" << endl;
+		return nullptr;
 	}
 
-	Nodo<Cliente>* nodoEliminar = frente;
+	Nodo<Cliente*>* nodoEliminar = frente;
+	Cliente* cliente = nodoEliminar->dato;
+
 	if (frente == final) {
-		delete nodoEliminar;
-		frente == nullptr;
-		final == nullptr;
+		frente = nullptr;
+		final = nullptr;
 	}
 	else {
 		frente = frente->next;
-		delete nodoEliminar;
 	}
+
+	delete nodoEliminar;
+	return cliente;
 }
 
 // Mostrar cola
@@ -41,12 +44,16 @@ void Cola::mostrarCola() {
 		return;
 	}
 
-	Nodo<Cliente>* nodoActual = frente;
+	Nodo<Cliente*>* nodoActual = frente;
 	while (nodoActual != nullptr) {
-		nodoActual->dato.mostrarCliente();
+		nodoActual->dato->mostrarDetalles();
+		cout << endl;
 		nodoActual = nodoActual->next;
 	}
 }
+
+// Get frente
+Cliente* Cola::getFrente() { return frente->dato; }
 
 // Destructor
 Cola::~Cola() {}

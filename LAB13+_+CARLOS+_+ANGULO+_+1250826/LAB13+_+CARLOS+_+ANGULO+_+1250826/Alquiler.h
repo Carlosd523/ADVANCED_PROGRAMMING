@@ -9,30 +9,30 @@ class Alquiler
 private:
 	Pelicula* pelicula;
 	Cliente* cliente;
-	int fechaAlquiler;
-	int fechaDevolucion;
+	string fechaAlquiler;
+	string fechaDevolucion = "Película aún en alquiler";
 	double montoTotal;
 
 public:
 	// Constructor
-	Alquiler(Pelicula* pelicula, Cliente* cliente, int fechaAlquiler, int fechaDevolucion, double montoTotal);
+	Alquiler(Pelicula* pelicula, Cliente* cliente, string fechaAlquiler, double montoTotal);
 
 	// Métodos get
 	Pelicula* getPelicula();
 	Cliente* getCliente();
-	int getFechaAlquiler();
-	int getFechaDevolucion();
+	string getFechaAlquiler();
+	string getFechaDevolucion();
 	double getMontoTotal();
 
 	// Métodos set
 	void setPelicula(Pelicula* pelicula);
 	void setCliente(Cliente* cliente);
-	void setFechaAlquiler(int fechaAlquiler);
-	void setFechaDevolucion(int fechaDevolucion);
+	void setFechaAlquiler(string fechaAlquiler);
+	void setFechaDevolucion(string fechaDevolucion);
 	void setMontoTotal(double montoTotal);
 
 	// Otros métodos
-	void mostrarAlquiler();
+	void mostrarDetalles();
 };
 
 #endif

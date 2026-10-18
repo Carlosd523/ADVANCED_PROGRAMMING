@@ -13,7 +13,7 @@ Pelicula::Pelicula(string titulo, string genero, double precioAlquiler, int anyo
 Pelicula::Pelicula() {}
 
 // Métodos get
-string Pelicula::getTitulo() { return titulo; }
+string Pelicula::getClave() { return titulo; }
 string Pelicula::getGenero() { return genero; }
 double Pelicula::getPrecioAlquiler() { return precioAlquiler; }
 int Pelicula::getAnyoEstreno() { return anyoEstreno; }
@@ -27,7 +27,7 @@ void Pelicula::setAnyoEstreno(int anyoEstreno) { this->anyoEstreno = anyoEstreno
 void Pelicula::setCopiasDisponibles(int copiasDisponibles) { this->copiasDisponibles = copiasDisponibles; }
 
 // Otros métodos
-void Pelicula::mostrarPelicula() {
+void Pelicula::mostrarDetalles() {
 	cout << "Título de la película: " << titulo
 		<< "\nGénero: " << genero
 		<< "\nPrecio de alquiler: " << precioAlquiler

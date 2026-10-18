@@ -7,16 +7,22 @@
 class Pila
 {
 private:
-	Nodo<Alquiler>* cima = nullptr;
+	Nodo<Alquiler*>* cima = nullptr;
 public:
 	// Método push
-	void pushAlquiler(Alquiler alquiler);
+	void pushAlquiler(Alquiler* alquiler);
 
 	// Método pop
-	void popAlquiler();
+	Alquiler* popAlquiler();
 
 	// Mostrar la pila
 	void mostrarPila();
+
+	// Determina si la pila está vacía
+	bool pilaVacia();
+
+	// Get Cima
+	Alquiler* getCima();
 
 	// Destructor
 	~Pila();
